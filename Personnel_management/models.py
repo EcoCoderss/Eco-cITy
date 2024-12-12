@@ -1,0 +1,1 @@
+# Modelli Pydantic per gestione del personale

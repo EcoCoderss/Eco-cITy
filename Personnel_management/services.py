@@ -1,0 +1,1 @@
+# Logica per calcolare risorse necessarie

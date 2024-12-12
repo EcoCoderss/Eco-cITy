@@ -1,0 +1,1 @@
+# Modello per scenari di emergenza
