@@ -4,7 +4,7 @@ from models.staff_estimation import StaffEstimationInput
 
 router = APIRouter()
 
-@router.post("/")
+@router.post("/staffestimation")
 async def simulate_staff_estimation(data: StaffEstimationInput):
     result = staff_estimation_agent.run(data)
     return {"result": result}

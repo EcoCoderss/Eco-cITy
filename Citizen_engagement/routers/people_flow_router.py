@@ -4,7 +4,7 @@ from models.people_flow import PeopleFlowInput
 
 router = APIRouter()
 
-@router.post("/")
+@router.post("/peopleflow/")
 async def simulate_people_flow(data: PeopleFlowInput):
     result = people_flow_agent.run(data)
     return {"result": result}

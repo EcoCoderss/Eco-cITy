@@ -4,7 +4,7 @@ from models.emergency_exit import EmergencyExitInput
 
 router = APIRouter()
 
-@router.post("/")
+@router.post("/emergency")
 async def simulate_emergency_exit(data: EmergencyExitInput):
     result = emergency_exit_agent.run(data)
     return {"result": result}
