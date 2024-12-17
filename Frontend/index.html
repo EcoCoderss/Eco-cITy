@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eco-City Homepage</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/3.3.2/tailwind.min.css">
+    <style>
+        body {
+            background: linear-gradient(to bottom, #e8f5e9, #c8e6c9);
+            font-family: 'Roboto', sans-serif;
+        }
+        header {
+            background: linear-gradient(90deg, #2e7d32, #388e3c);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.8rem;
+        }
+        section {
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+        }
+        section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+        button {
+            font-size: 0.9rem;
+            transition: all 0.2s ease-in-out;
+        }
+        button:hover {
+            background-color: #1b5e20;
+            transform: scale(1.05);
+        }
+        #dropzone {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 200px;
+            cursor: pointer;
+        }
+        #dropzone:hover {
+            background-color: #f1f8e9;
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+
+    <header class="text-white p-5">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="font-bold tracking-wide">Eco-City Manager</h1>
+            <nav>
+                <ul class="flex space-x-6 text-sm">
+                    <li><a href="#profile" class="hover:underline">Profilo</a></li>
+                    <li><a href="#upload" class="hover:underline">Carica File</a></li>
+                    <li><a href="#api-portfolio" class="hover:underline">Portfolio API</a></li>
+                    <li><a href="#report-history" class="hover:underline">Storico Report</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container mx-auto py-10 px-4 lg:px-10">
+
+        <!-- Profile Section -->
+        <section id="profile" class="mb-8">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-4">Profilo Utente</h2>
+            <div class="flex items-center space-x-6">
+                <img src="https://via.placeholder.com/120" alt="Avatar" class="rounded-full shadow-lg w-28 h-28">
+                <div>
+                    <p class="text-lg font-medium text-gray-700">Nome: John Doe</p>
+                    <p class="text-gray-500">Email: john.doe@example.com</p>
+                    <button class="mt-4 bg-green-500 text-white py-2 px-6 rounded-md hover:bg-green-600">Modifica Profilo</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Drag and Drop File Upload Section -->
+        <section id="upload" class="mb-8">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-4">Carica File</h2>
+            <div id="dropzone" class="border-4 border-dashed border-gray-300 rounded-lg bg-gray-50 text-center text-gray-600">
+                <p class="mb-4">Trascina il tuo file qui o clicca per selezionarlo</p>
+                <input type="file" id="fileInput" class="hidden">
+                <button class="bg-green-500 text-white py-2 px-6 rounded-md hover:bg-green-600" onclick="document.getElementById('fileInput').click()">Seleziona File</button>
+            </div>
+        </section>
+
+        <!-- API Portfolio Section -->
+        <section id="api-portfolio" class="mb-8">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-4">Portfolio API</h2>
+            <ul class="flex justify-between space-x-4">
+                <li class="bg-gray-100 p-6 rounded-lg shadow hover:shadow-lg w-full">
+                    <h3 class="font-semibold text-gray-800 mb-2">API Weather</h3>
+                    <p class="text-sm text-gray-600 mb-4">Ottieni previsioni meteo in tempo reale.</p>
+                    <button class="bg-green-500 text-white py-2 px-4 rounded-md hover:bg-green-600">Documentazione</button>
+                </li>
+                <li class="bg-gray-100 p-6 rounded-lg shadow hover:shadow-lg w-full">
+                    <h3 class="font-semibold text-gray-800 mb-2">API Traffic</h3>
+                    <p class="text-sm text-gray-600 mb-4">Monitora il traffico stradale.</p>
+                    <button class="bg-green-500 text-white py-2 px-4 rounded-md hover:bg-green-600">Documentazione</button>
+                </li>
+                <li class="bg-gray-100 p-6 rounded-lg shadow hover:shadow-lg w-full">
+                    <h3 class="font-semibold text-gray-800 mb-2">API Sustainability</h3>
+                    <p class="text-sm text-gray-600 mb-4">Calcola il punteggio di sostenibilità degli eventi.</p>
+                    <button class="bg-green-500 text-white py-2 px-4 rounded-md hover:bg-green-600">Documentazione</button>
+                </li>
+            </ul>
+        </section>
+
+        <!-- Report History Section -->
+        <section id="report-history">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-4">Storico Report</h2>
+            <table class="w-full table-auto border-collapse bg-white rounded-lg shadow-lg">
+                <thead>
+                    <tr class="bg-gray-200 text-gray-600 uppercase text-sm leading-normal">
+                        <th class="py-3 px-6 text-left">Nome Report</th>
+                        <th class="py-3 px-6 text-left">Data</th>
+                        <th class="py-3 px-6 text-center">Azione</th>
+                    </tr>
+                </thead>
+                <tbody class="text-gray-600 text-sm font-light">
+                    <tr class="border-b border-gray-200 hover:bg-gray-100">
+                        <td class="py-3 px-6 text-left">Report 1</td>
+                        <td class="py-3 px-6 text-left">2024-12-17</td>
+                        <td class="py-3 px-6 text-center">
+                            <button class="bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600">Scarica</button>
+                        </td>
+                    </tr>
+                    <tr class="border-b border-gray-200 hover:bg-gray-100">
+                        <td class="py-3 px-6 text-left">Report 2</td>
+                        <td class="py-3 px-6 text-left">2024-12-16</td>
+                        <td class="py-3 px-6 text-center">
+                            <button class="bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600">Scarica</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+    </main>
+
+    <script>
+        const dropzone = document.getElementById('dropzone');
+        const fileInput = document.getElementById('fileInput');
+
+        dropzone.addEventListener('dragover', (event) => {
+            event.preventDefault();
+            dropzone.classList.add('bg-green-100');
+        });
+
+        dropzone
