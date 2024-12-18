@@ -64,3 +64,4 @@ async def collect_waste(data: dict):
     async with httpx.AsyncClient() as client:
         response = await client.post("http://127.0.0.1:8000/event/collect", json=data)
     return response.json()
+
