@@ -4,10 +4,29 @@ from src.services.openrefine_service import create_project_from_csv, apply_opera
 from src.models.event_model import EventData
 from src.models.mysql_config_model import MySQLConfig
 from src.pipelines.data_pipeline import process_access_to_mysql
+from pipelines.export_pipeline import export_to_json, export_to_csv
+from pipelines.orchestrator import orchestrate_datagen_workflow 
+
 import os
 
 router = APIRouter()
 
+@router.post("/run")
+async def run_datagen_workflow(access_path: str, mysql_config: dict, output_path: str):
+    try:
+        orchestrate_datagen_workflow(access_path, mysql_config, output_path)
+        return {"status": "success", "message": "Workflow completato."}
+    except Exception as e:
+        return {"status": "error", "message": str(e)}
+
+@router.post("/export")
+async def export_cleaned_data_to_json(data: list, output_path: str):
+    try:
+        export_to_json(data, output_path)
+        return {"status": "success", "message": f"Dati esportati in {output_path}"}
+    except Exception as e:
+        return {"status": "error", "message": str(e)}
+    
 @router.post("/validate/")
 def validate(data: EventData):
     validation_result = validate_event_data(data)
