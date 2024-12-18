@@ -10,3 +10,5 @@ python-multipart
 ifcopenshell
 pytest
 crewai
+pyodbc
+mysql-connector-python

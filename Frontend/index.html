@@ -5,153 +5,196 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Eco-City Homepage</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/3.3.2/tailwind.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
         body {
-            background: linear-gradient(to bottom, #e8f5e9, #c8e6c9);
-            font-family: 'Roboto', sans-serif;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(to bottom, #f0f4f8, #e0f7fa);
+            color: #333;
         }
+
         header {
-            background: linear-gradient(90deg, #2e7d32, #388e3c);
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            background: linear-gradient(135deg, #2e7d32, #66bb6a);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            padding: 1rem 0;
         }
-        h1 {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 1.8rem;
+
+        header h1 {
+            font-size: 2.5rem;
+            letter-spacing: 1.5px;
+            color: white;
         }
-        section {
-            background-color: #ffffff;
-            border-radius: 12px;
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
-            padding: 2rem;
-            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-        }
-        section:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
-        }
-        button {
-            font-size: 0.9rem;
-            transition: all 0.2s ease-in-out;
-        }
-        button:hover {
-            background-color: #1b5e20;
-            transform: scale(1.05);
-        }
-        #dropzone {
+
+        nav ul {
             display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 200px;
-            cursor: pointer;
+            gap: 2rem;
+            list-style: none;
         }
-        #dropzone:hover {
-            background-color: #f1f8e9;
+
+        nav a {
+            position: relative;
+            color: white;
+            font-weight: 600;
+            text-transform: uppercase;
+            padding: 0.5rem 1.2rem;
+            transition: all 0.3s ease;
+            overflow: hidden;
+        }
+
+        nav a::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 3px;
+            background: #c8e6c9;
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+
+        nav a:hover::before {
+            width: 100%;
+        }
+
+        nav a:hover {
+            color: #f1f8e9;
+            transform: translateY(-2px);
+        }
+
+        section {
+            background-color: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            padding: 2.5rem;
+            transition: all 0.3s ease-in-out;
+        }
+
+        section:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        button {
+            background: linear-gradient(135deg, #4caf50, #388e3c);
+            color: white;
+            font-size: 1rem;
+            font-weight: 600;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 30px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+            position: relative;
+            overflow: hidden;
+        }
+
+        button::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.2);
+            transition: left 0.4s;
+        }
+
+        button:hover::after {
+            left: 0;
+        }
+
+        button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        footer {
+            background: #2e7d32;
+            color: white;
+            padding: 1.5rem;
+            text-align: center;
         }
     </style>
 </head>
-<body class="bg-gray-100">
-
-    <header class="text-white p-5">
-        <div class="container mx-auto flex justify-between items-center">
-            <h1 class="font-bold tracking-wide">Eco-City Manager</h1>
+<body>
+    <!-- Header -->
+    <header class="text-white">
+        <div class="container mx-auto flex justify-between items-center px-8">
+            <h1 class="font-bold flex items-center">
+                <i class="fas fa-leaf mr-3 text-4xl"></i>Eco-City Manager
+            </h1>
             <nav>
-                <ul class="flex space-x-6 text-sm">
-                    <li><a href="#profile" class="hover:underline">Profilo</a></li>
-                    <li><a href="#upload" class="hover:underline">Carica File</a></li>
-                    <li><a href="#api-portfolio" class="hover:underline">Portfolio API</a></li>
-                    <li><a href="#report-history" class="hover:underline">Storico Report</a></li>
+                <ul class="text-lg">
+                    <li><a href="#profile">Profilo</a></li>
+                    <li><a href="#upload">Carica File</a></li>
+                    <li><a href="#api-portfolio">Portfolio API</a></li>
+                    <li><a href="#report-history">Storico Report</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <main class="container mx-auto py-10 px-4 lg:px-10">
-
+    <!-- Main Content -->
+    <main class="container mx-auto py-12 px-6">
         <!-- Profile Section -->
-        <section id="profile" class="mb-8">
-            <h2 class="text-2xl font-semibold text-gray-800 mb-4">Profilo Utente</h2>
-            <div class="flex items-center space-x-6">
-                <img src="https://via.placeholder.com/120" alt="Avatar" class="rounded-full shadow-lg w-28 h-28">
-                <div>
-                    <p class="text-lg font-medium text-gray-700">Nome: John Doe</p>
-                    <p class="text-gray-500">Email: john.doe@example.com</p>
-                    <button class="mt-4 bg-green-500 text-white py-2 px-6 rounded-md hover:bg-green-600">Modifica Profilo</button>
-                </div>
-            </div>
+        <section id="profile" class="mb-12 text-center">
+            <h2 class="text-4xl font-semibold mb-4">
+                <i class="fas fa-user-circle mr-2 text-green-600"></i>Profilo Utente
+            </h2>
+            <img src="https://via.placeholder.com/120" alt="Avatar" class="rounded-full shadow-lg mx-auto mb-6 w-32 h-32 border-4 border-green-400">
+            <p class="text-2xl font-medium text-gray-700">Nome: John Doe</p>
+            <p class="text-gray-500 text-lg">Email: john.doe@example.com</p>
+            <button class="mt-6">
+                <i class="fas fa-edit mr-2"></i>Modifica Profilo
+            </button>
         </section>
 
-        <!-- Drag and Drop File Upload Section -->
-        <section id="upload" class="mb-8">
-            <h2 class="text-2xl font-semibold text-gray-800 mb-4">Carica File</h2>
-            <div id="dropzone" class="border-4 border-dashed border-gray-300 rounded-lg bg-gray-50 text-center text-gray-600">
-                <p class="mb-4">Trascina il tuo file qui o clicca per selezionarlo</p>
+        <!-- Upload Section -->
+        <section id="upload" class="mb-12">
+            <h2 class="text-4xl font-semibold text-center mb-6">
+                <i class="fas fa-upload mr-2 text-green-600"></i>Carica File
+            </h2>
+            <div id="dropzone" class="border-4 border-dashed rounded-lg text-center py-12 text-gray-600 mx-auto max-w-lg">
+                <p class="mb-6 text-lg">Trascina il tuo file qui o clicca per selezionarlo</p>
                 <input type="file" id="fileInput" class="hidden">
-                <button class="bg-green-500 text-white py-2 px-6 rounded-md hover:bg-green-600" onclick="document.getElementById('fileInput').click()">Seleziona File</button>
+                <button onclick="document.getElementById('fileInput').click()">
+                    <i class="fas fa-folder-open mr-2"></i>Seleziona File
+                </button>
             </div>
         </section>
 
         <!-- API Portfolio Section -->
-        <section id="api-portfolio" class="mb-8">
-            <h2 class="text-2xl font-semibold text-gray-800 mb-4">Portfolio API</h2>
-            <ul class="flex justify-between space-x-4">
-                <li class="bg-gray-100 p-6 rounded-lg shadow hover:shadow-lg w-full">
-                    <h3 class="font-semibold text-gray-800 mb-2">API Weather</h3>
-                    <p class="text-sm text-gray-600 mb-4">Ottieni previsioni meteo in tempo reale.</p>
-                    <button class="bg-green-500 text-white py-2 px-4 rounded-md hover:bg-green-600">Documentazione</button>
-                </li>
-                <li class="bg-gray-100 p-6 rounded-lg shadow hover:shadow-lg w-full">
-                    <h3 class="font-semibold text-gray-800 mb-2">API Traffic</h3>
-                    <p class="text-sm text-gray-600 mb-4">Monitora il traffico stradale.</p>
-                    <button class="bg-green-500 text-white py-2 px-4 rounded-md hover:bg-green-600">Documentazione</button>
-                </li>
-                <li class="bg-gray-100 p-6 rounded-lg shadow hover:shadow-lg w-full">
-                    <h3 class="font-semibold text-gray-800 mb-2">API Sustainability</h3>
-                    <p class="text-sm text-gray-600 mb-4">Calcola il punteggio di sostenibilità degli eventi.</p>
-                    <button class="bg-green-500 text-white py-2 px-4 rounded-md hover:bg-green-600">Documentazione</button>
-                </li>
-            </ul>
+        <section id="api-portfolio" class="mb-12">
+            <h2 class="text-4xl font-semibold text-center mb-8">
+                <i class="fas fa-database mr-2 text-green-600"></i>Portfolio API
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="api-card text-center">
+                    <h3 class="font-semibold text-xl mb-3">API Weather</h3>
+                    <p class="text-gray-700 mb-4">Ottieni previsioni meteo in tempo reale.</p>
+                    <button>Documentazione</button>
+                </div>
+                <div class="api-card text-center">
+                    <h3 class="font-semibold text-xl mb-3">API Traffic</h3>
+                    <p class="text-gray-700 mb-4">Monitora il traffico stradale.</p>
+                    <button>Documentazione</button>
+                </div>
+                <div class="api-card text-center">
+                    <h3 class="font-semibold text-xl mb-3">API Sustainability</h3>
+                    <p class="text-gray-700 mb-4">Calcola il punteggio di sostenibilità degli eventi.</p>
+                    <button>Documentazione</button>
+                </div>
+            </div>
         </section>
-
-        <!-- Report History Section -->
-        <section id="report-history">
-            <h2 class="text-2xl font-semibold text-gray-800 mb-4">Storico Report</h2>
-            <table class="w-full table-auto border-collapse bg-white rounded-lg shadow-lg">
-                <thead>
-                    <tr class="bg-gray-200 text-gray-600 uppercase text-sm leading-normal">
-                        <th class="py-3 px-6 text-left">Nome Report</th>
-                        <th class="py-3 px-6 text-left">Data</th>
-                        <th class="py-3 px-6 text-center">Azione</th>
-                    </tr>
-                </thead>
-                <tbody class="text-gray-600 text-sm font-light">
-                    <tr class="border-b border-gray-200 hover:bg-gray-100">
-                        <td class="py-3 px-6 text-left">Report 1</td>
-                        <td class="py-3 px-6 text-left">2024-12-17</td>
-                        <td class="py-3 px-6 text-center">
-                            <button class="bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600">Scarica</button>
-                        </td>
-                    </tr>
-                    <tr class="border-b border-gray-200 hover:bg-gray-100">
-                        <td class="py-3 px-6 text-left">Report 2</td>
-                        <td class="py-3 px-6 text-left">2024-12-16</td>
-                        <td class="py-3 px-6 text-center">
-                            <button class="bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600">Scarica</button>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </section>
-
     </main>
 
-    <script>
-        const dropzone = document.getElementById('dropzone');
-        const fileInput = document.getElementById('fileInput');
-
-        dropzone.addEventListener('dragover', (event) => {
-            event.preventDefault();
-            dropzone.classList.add('bg-green-100');
-        });
-
-        dropzone
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Eco-City Manager. All rights reserved.</p>
+    </footer>
+</body>
+</html>
