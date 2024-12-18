@@ -1,0 +1,16 @@
+services:
+  app:
+    build: .
+    ports:
+      - "8000:8000"  # FastAPI
+      - "3333:3333"  # OpenRefine
+    volumes:
+      - ./src:/app/src
+      - ./tests:/app/tests
+      - ./requirements.txt:/app/requirements.txt
+      - ./start.sh:/start.sh
+    environment:
+      - OPENREFINE_HOME=/app/openrefine
+
+volumes:
+  openrefine-data:

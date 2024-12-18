@@ -1,0 +1,1 @@
+# Implementa le funzioni per l'importazione e la validazione dei file IFC
