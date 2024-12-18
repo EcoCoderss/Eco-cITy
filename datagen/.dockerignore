@@ -1,0 +1,13 @@
+# Ignora file di log
+*.log
+
+# Ignora directory temporanee
+tmp/
+temp/
+
+# Ignora ambiente virtuale
+venv/
+.env
+
+# Assicurati che la cartella 'openrefine' **non** sia nei file ignorati
+# openrefine/
