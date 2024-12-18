@@ -3,6 +3,12 @@ from services.access_service import read_access
 from services.csv_service import read_csv
 from services.crewai_service import clean_with_crewai
 from services.openrefine_service import clean_with_openrefine
+from services.transfer_service import DataTransferService
+
+def process_access_to_mysql(access_path, mysql_config):
+    transfer_service = DataTransferService(access_path, mysql_config)
+    transfer_service.transfer_all_tables()
+    transfer_service.close_connections()
 
 def orchestrate_pipeline(file_path, file_type, project_name):
     # Step 1: Acquisizione

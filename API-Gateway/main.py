@@ -1,14 +1,10 @@
 from fastapi import FastAPI
-from routes import simulation, resources
-from utils.logger import get_logger
+from datagen.src.api.routes import router  # Importa il router
 
 app = FastAPI()
-logger = get_logger(__name__)
 
-app.include_router(simulation.router)
-app.include_router(resources.router)
+app.include_router(router)  # Includi il router nell'app
 
-if __name__ == "__main__":
-    import uvicorn
-    logger.info("Starting API Gateway...")
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+@app.get("/")
+def read_root():
+    return {"message": "Microservizio di Validazione Attivo"}

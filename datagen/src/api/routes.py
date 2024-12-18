@@ -2,6 +2,8 @@ from fastapi import APIRouter, UploadFile, File, HTTPException
 from src.services.validation_service import validate_event_data
 from src.services.openrefine_service import create_project_from_csv, apply_operations, export_project
 from src.models.event_model import EventData
+from src.models.mysql_config_model import MySQLConfig
+from src.pipelines.data_pipeline import process_access_to_mysql
 import os
 
 router = APIRouter()
@@ -51,5 +53,13 @@ def clean_data(file: UploadFile = File(...)):
         os.remove(file_path)
 
         return {"status": "success", "cleaned_file": cleaned_file_path}
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+@router.post("/transfer")
+def transfer_access_to_mysql_endpoint(access_path: str, mysql_config: MySQLConfig):
+    try:
+        process_access_to_mysql(access_path, mysql_config.dict())
+        return {"status": "success", "message": "Dati trasferiti con successo."}
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
