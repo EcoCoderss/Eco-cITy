@@ -12,6 +12,6 @@ app.include_router(people_flow_router.router, prefix="/peopleflow", tags=["Peopl
 app.include_router(emergency_exit_router.router, prefix="/emergency-exit", tags=["Emergency Exit"])
 app.include_router(staff_estimation_router.router, prefix="/staff-estimation", tags=["Staff Estimation"])
 
-@app.get("/")
+@app.get("/citizen")
 async def root():
     return {"message": "Simulation Project is running"}
